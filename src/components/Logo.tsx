@@ -1,3 +1,9 @@
+/**
+ * Renders the company logo as an SVG element and forwards any SVG props to the root element.
+ *
+ * @param props - Props applied to the root <svg> element (e.g., className, width, height, style, aria attributes)
+ * @returns The SVG element containing the logo graphic
+ */
 export function Logo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg

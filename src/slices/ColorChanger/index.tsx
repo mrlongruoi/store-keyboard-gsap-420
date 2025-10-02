@@ -64,6 +64,13 @@ const ColorChanger: FC<ColorChangerProps> = ({ slice }) => {
   const [backgroundText, setBackroundText] = useState(KEYCAP_TEXTURES[0].name);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  /**
+   * Initiates selection of a keycap texture and starts the transition animation.
+   *
+   * If the given texture is already selected or a transition is in progress, the function does nothing.
+   *
+   * @param texture - The keycap texture to select
+   */
   function handleTextureSelect(texture: KeycapTexture) {
     if (texture.id === selectedTextureId || isAnimating) return;
 

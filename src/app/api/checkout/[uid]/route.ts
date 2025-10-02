@@ -7,6 +7,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-09-30.clover",
 });
 
+/**
+ * Create a Stripe Checkout session for the product identified by the route `uid` and return its URL.
+ *
+ * Constructs a Checkout session using product data fetched from Prismic (name, price, optional description and image)
+ * and returns a JSON response containing the session URL on success.
+ *
+ * @param request - The incoming NextRequest; used to derive the origin for success and cancel URLs.
+ * @param params - An object promise that resolves to route parameters; must include `uid`, the product UID.
+ * @returns A JSON response with `{ url: string }` when the session is created successfully. If `uid` is missing the response has status 400 and an error message; on other failures the response has status 500 and an error message.
+ */
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ uid: string }> },

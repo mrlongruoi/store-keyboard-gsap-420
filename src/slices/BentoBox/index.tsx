@@ -49,7 +49,13 @@ type BentoBoxItemProps = {
   index: number;
 };
 
-// BentoBoxItem component
+/**
+ * Render a single BentoBox grid item with its image, gradient overlay, and caption.
+ *
+ * @param item - The slice item containing `image`, `text`, and optional `size` used to determine the item's grid span.
+ * @param index - Zero-based position of the item within the slice; used to select a predefined layout span.
+ * @returns The rendered grid cell element containing the item image, a bottom gradient, and the rich-text caption.
+ */
 function BentoBoxItem({ item, index }: BentoBoxItemProps) {
   const spanClass = getSpanClass(item, index);
 
@@ -72,7 +78,15 @@ function BentoBoxItem({ item, index }: BentoBoxItemProps) {
   );
 }
 
-// mapping function: tweak numbers to match exact artboard
+/**
+ * Determines the Tailwind CSS grid column/row span classes for a BentoBox item.
+ *
+ * Chooses a predefined grid span based on the item's zero-based `index` to implement the slice's "features-style" layout; if the index is outside the predefined range, falls back to using `item.size` from the CMS.
+ *
+ * @param item - The BentoBox item object from the CMS; its `size` field (e.g., "Small", "Medium", "Large") is used when no index-specific mapping exists.
+ * @param index - Zero-based position of the item within the slice used to select an index-specific layout.
+ * @returns A string of Tailwind grid span utility classes (e.g., `"md:col-span-4 md:row-span-2"`) indicating the column and row spans for the item.
+ */
 function getSpanClass(
   item: Content.BentoBoxSliceDefaultPrimaryItemsItem,
   index: number

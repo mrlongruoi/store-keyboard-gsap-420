@@ -16,6 +16,13 @@ import clsx from "clsx";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
+/**
+ * Renders a loader overlay while the application's assets are loading.
+ *
+ * Hides the loader 100 milliseconds after loading completes to reduce flicker; when hidden it is visually transparent and does not receive pointer events.
+ *
+ * @returns A JSX element containing the loader overlay with CSS transitions and visibility controlled by the loading state
+ */
 function LoaderWrapper() {
   const { active } = useProgress();
   const [isLoading, setIsLoading] = useState(true);

@@ -27,6 +27,15 @@ interface SuccessPageProps {
   searchParams: Promise<{ session_id?: string }>;
 }
 
+/**
+ * Render the order confirmation page using a Stripe checkout session ID provided via searchParams.
+ *
+ * Fetches the Stripe checkout session for the given `session_id` and renders a detailed confirmation UI when available;
+ * if the `session_id` is missing or session retrieval fails, renders an error state with a link back to the home page.
+ *
+ * @param searchParams - A promise resolving to an object that may include `session_id`; the `session_id` is used to look up the Stripe checkout session.
+ * @returns The JSX element for the order confirmation page or an error view when the session is missing or cannot be loaded.
+ */
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   const resolvedSearchParams = await searchParams;
   const sessionId = resolvedSearchParams.session_id;

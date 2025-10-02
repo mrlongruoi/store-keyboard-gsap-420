@@ -12,6 +12,11 @@ import * as THREE from "three";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+/**
+ * Provides a parallax camera controller that subtly moves the scene camera based on pointer position.
+ *
+ * Updates the Three.js camera position and look target each frame to produce a smooth, interpolated parallax motion driven by normalized pointer coordinates. Honors the user's "prefers-reduced-motion" setting by snapping the camera to a fixed base position and disabling the motion. Registers a window "mousemove" listener to update pointer coordinates when motion is allowed and removes the listener on unmount.
+ */
 function CameraController() {
   const { camera, size } = useThree();
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
@@ -72,6 +77,13 @@ function CameraController() {
   return null;
 }
 
+/**
+ * Render the 3D keyboard scene with camera, environment lighting, and GSAP-driven entrance and scroll-triggered keycap wave animations.
+ *
+ * The component mounts a PerspectiveCamera and CameraController, loads a Keyboard model and standalone Keycap meshes, animates global light intensity and keyboard transform on entrance, and attaches a ScrollTrigger timeline that scales keycaps and triggers a per-column wave animation across switches and keycaps. Respects prefers-reduced-motion and guards against server-side rendering.
+ *
+ * @returns A React element containing the configured three.js scene (camera, keyboard and keycap groups, environment, and spotlight).
+ */
 export function Scene() {
   const keyboardGroupRef = useRef<THREE.Group>(null);
   const keycapRef = useRef<THREE.Group>(null);
