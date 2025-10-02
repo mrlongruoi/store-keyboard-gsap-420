@@ -16,6 +16,17 @@ type FadeInProps = {
   targetChildren?: boolean;
 };
 
+/**
+ * Wraps content in a container that applies a staggered fade-in animation when scrolled into view.
+ *
+ * The animation initializes elements with opacity 0 and a vertical offset, then animates them to
+ * opacity 1 and y 0 with a staggered timing and ScrollTrigger tied to the container.
+ *
+ * @param vars - Optional GSAP tween vars to extend or override the default animation configuration.
+ * @param start - ScrollTrigger start position (e.g., `"top 50%"`) that determines when the animation begins.
+ * @param targetChildren - If `true`, animate the container's child elements individually; otherwise animate the container itself.
+ * @returns A JSX element that wraps `children` and applies the configured scroll-triggered fade-in animation.
+ */
 export function FadeIn({
   children,
   className,

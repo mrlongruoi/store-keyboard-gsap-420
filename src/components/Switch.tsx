@@ -28,6 +28,13 @@ type SwitchProps = React.ComponentProps<"group"> & {
   hexColor: string;
 };
 
+/**
+ * Renders an interactive 3D switch with press/release animations and color-specific audio feedback.
+ *
+ * @param color - One of `"red" | "brown" | "blue" | "black"` selecting which sound set to use.
+ * @param hexColor - CSS hex color string used for the switch stem material.
+ * @returns A JSX element containing the interactive switch group.
+ */
 export function Switch({ color, hexColor, ...restProps }: SwitchProps) {
   const { nodes } = useGLTF("/switch.gltf") as unknown as GLTFResult;
   const switchGroupRef = useRef<THREE.Group>(null);

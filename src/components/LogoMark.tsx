@@ -1,3 +1,11 @@
+/**
+ * Renders the logo mark as an inline SVG.
+ *
+ * The graphic consists of a rounded orange background and three layered colored paths clipped by a rounded clipPath.
+ *
+ * @param props - SVG attributes applied to the root <svg> element; these are spread onto the root element.
+ * @returns The SVG element for the logo mark.
+ */
 export function LogoMark(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg

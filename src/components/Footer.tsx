@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Bounded } from "./Bounded";
 
+/**
+ * Renders the site's footer bar with branding, a dynamic current-year copyright,
+ * and primary site navigation links.
+ *
+ * @returns A footer element containing the brand/logo area, the current year text, and navigation links.
+ */
 export function Footer() {
   return (
     <Bounded as="footer" className="bg-black text-gray-400">
@@ -32,6 +38,13 @@ type FooterLinkProps = {
   children: ReactNode;
 };
 
+/**
+ * Renders a styled internal navigation link for the footer.
+ *
+ * @param href - Destination URL or path for the link
+ * @param children - Visible content rendered inside the link
+ * @returns A Next.js `Link` element styled for footer typography and focus/hover states
+ */
 function FooterLink({ href, children }: FooterLinkProps) {
   return (
     <Link

@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description: "Một bộ sưu tập bàn phím cơ đẹp mắt và chất lượng cao.",
 };
 
+/**
+ * Root layout component that composes the page with site chrome and main content.
+ *
+ * @param children - Content to render inside the page's main area
+ * @returns The top-level HTML structure containing the Navbar, a <main> wrapping `children`, the Footer, and a Prismic preview connector
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

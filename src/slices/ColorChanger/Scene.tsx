@@ -15,6 +15,13 @@ type SceneProps = {
   onAnimationComplete: () => void;
 };
 
+/**
+ * Renders a 3D keyboard scene and updates the keycap material when the selected texture changes, animating the keyboard lift-and-drop unless the user prefers reduced motion.
+ *
+ * @param selectedTextureId - The id of the texture to apply to the keyboard keycaps.
+ * @param onAnimationComplete - Callback invoked after the texture-change animation finishes or immediately if reduced motion is requested.
+ * @returns The JSX element containing the staged 3D keyboard with the currently applied keycap material and knob color.
+ */
 export function Scene({ selectedTextureId, onAnimationComplete }: SceneProps) {
   const keyboardRef = useRef<THREE.Group>(null);
   const texturePaths = KEYCAP_TEXTURES.map((t) => t.path);

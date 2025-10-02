@@ -15,6 +15,16 @@ type GLTFResult = GLTF & {
   materials: Record<string, unknown>;
 };
 
+/**
+ * Renders a 3D keycap mesh with a selectable UV texture.
+ *
+ * Uses the built-in keycap GLTF model and applies one of nine UV texture variants.
+ *
+ * @param position - World position of the keycap as [x, y, z]
+ * @param rotation - Euler rotation of the keycap as [x, y, z] (radians)
+ * @param texture - Index (0–8) selecting which UV texture variant to apply
+ * @returns The React element that renders the textured keycap mesh
+ */
 export function Keycap({
   position = [0, 0, 0],
   rotation = [0, 0, 0],

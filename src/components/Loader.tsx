@@ -6,6 +6,11 @@ import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP);
 
+/**
+ * Render a full-screen loading overlay that animates keyboard-style keycaps.
+ *
+ * @returns A JSX element containing a fixed full-screen gradient background and SVG graphics with animated keycap elements.
+ */
 export function Loader() {
   const containerRef = useRef<HTMLDivElement>(null);
 

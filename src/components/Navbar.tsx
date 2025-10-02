@@ -21,6 +21,13 @@ const DialogContext = createContext<
   [open: boolean, setOpen: (open: boolean) => void]
 >([false, () => {}]);
 
+/**
+ * Render the top navigation bar with a brand link, a checkout button, and a responsive slide-in menu.
+ *
+ * The component manages the menu open state and disables the checkout button while the checkout flow runs.
+ *
+ * @returns The header element containing the navigation UI
+ */
 export function Navbar() {
   const button = useRef<HTMLButtonElement>(null);
   const state = useState(false);
@@ -108,6 +115,14 @@ type NavbarLinkProps = {
   description: string;
 };
 
+/**
+ * Renders a navigation list item linking to the given href and closes the menu dialog when activated.
+ *
+ * @param href - Destination URL for the link.
+ * @param title - Visible title text shown prominently for the link.
+ * @param description - Secondary descriptive text shown under the title.
+ * @returns A list item (<li>) containing a styled link with the title, description, and a chevron indicator.
+ */
 function NavbarLink({ href, title, description }: NavbarLinkProps) {
   const [, setOpen] = useContext(DialogContext);
 
