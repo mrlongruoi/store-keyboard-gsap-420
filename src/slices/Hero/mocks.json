@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Record"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est do elit non ad occaecat do irure consequat consectetur velit aliqua. Tempor elit irure eu adipisicing et est dolore amet eu consequat aliqua sint fugiat enim."
+						}
+					}
+				]
+			},
+			"buy_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "stems",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
